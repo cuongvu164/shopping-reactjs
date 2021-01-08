@@ -1,0 +1,26 @@
+.header__container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    .logo {
+        img {
+            max-height: 65px;
+        }
+        flex: 1;
+    }
+    .header__aside {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        .header__aside--infor-top {
+            ul {
+                list-style-type: none;
+            }
+            ul li a{
+                text-decoration: none;
+                color: black;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
