@@ -1,6 +1,8 @@
+@import '../mixin.scss';
+
 .header__container {
     width: 80%;
-    margin: 0 auto;
+    margin: 24px auto;
     display: flex;
     .logo {
         img {
@@ -12,15 +14,72 @@
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        .header__aside--infor-top {
+        &--infor {
+            margin-right: 20px;
+        }
+        &--infor-top {
+            border-bottom: 1px dotted black;
+            padding-bottom: 10px;
+            padding-top: 5px;
             ul {
                 list-style-type: none;
+                display: flex;
             }
-            ul li a{
-                text-decoration: none;
-                color: black;
-                text-transform: uppercase;
+            ul li {
+                padding-left: 20px;
+                padding-right: 20px;
+                border-left: 1px solid black;
+                @include style-font-size(12);
+                & a {
+                    text-decoration: none;
+                    color: black;
+                }
+                &:first-child {
+                    border: 0;
+                    padding-left: 0;
+                }
+                &:last-child{
+                    padding-right: 0;
+                }
             }
         }
+        &--infor-bottom {
+            padding-top: 10px;
+            p {
+                text-align: right;
+                color: red;
+                @include style-font-size(12); 
+            }
+            
+        }
+    &--basket {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 65px;
+        height: 65px;
+        border: 1px solid #e2e01a;
+        box-sizing: border-box;
+        align-items: center;
+        i {
+            color: black;
+            font-size: 38px;
+        }
+        &:hover {
+            border: 1px solid red;
+            box-sizing: border-box;
+            transition: all 0.2s ease-in-out;
+        }
+        & .cart-number {
+            width: 23px;
+            height: 23px;
+            background-color: red;
+            position: absolute;
+            text-align: center;
+            color: white;
+            top: 10px;
+            left: 50px;
+        }
+    }
     }
 }

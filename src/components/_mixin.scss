@@ -1,0 +1,8 @@
+$font-stack: 'Roboto', sans-serif;
+$text-style: uppercase;
+
+@mixin style-font-size($size) {
+    text-transform: $text-style;
+    font-family: $font-stack;
+    font-size: $size + px;
+}

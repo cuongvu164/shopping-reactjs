@@ -39,7 +39,8 @@ const Header = () => {
             </div>
             <div className="header__aside--basket">
               <Link to="/">
-                <i class="fas fa-shopping-basket"></i>
+                <i class="fas fa-shopping-bag"></i>
+                <div className="cart-number">0</div>
               </Link> 
             </div>
           </div>
