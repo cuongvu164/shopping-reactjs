@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
 } from "react-router-dom";
 import './style.scss'
@@ -23,7 +21,7 @@ const Header = () => {
               <div className="header__aside--infor-top">
                 <ul>
                   <li>
-                    <span><i class="fas fa-phone-alt"></i>08.88.37.29.29</span>
+                    <span><i className="fas fa-phone-alt"></i>08.88.37.29.29</span>
                   </li>
                   <li>
                     <Link to="/">đăng ký</Link>
@@ -39,7 +37,7 @@ const Header = () => {
             </div>
             <div className="header__aside--basket">
               <Link to="/">
-                <i class="fas fa-shopping-bag"></i>
+                <i className="fas fa-shopping-bag"></i>
                 <div className="cart-number">0</div>
               </Link> 
             </div>

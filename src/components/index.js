@@ -9,7 +9,7 @@ const Components = () => {
     <>
       <Header />
       <Navbar />
-      <Slide />
+      {/* <Slide /> */}
     </>
   );
 };

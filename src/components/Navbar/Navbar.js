@@ -19,7 +19,7 @@ const Navbar = () => {
                 <Link to="/">sản phẩm</Link>
               </li> 
               <li className="dropdown-menu">
-                <Link to="/">hướng dẫn<i class="fas fa-caret-down"></i></Link>
+                <Link to="/">hướng dẫn<i className="fas fa-caret-down"></i></Link>
                 <ul className="dropdown-item">
                   <li><Link to="/">Hướng dẫn mua hàng</Link></li>
                   <li><Link to="/">Tài khoản ngân hàng</Link></li>
@@ -27,7 +27,7 @@ const Navbar = () => {
                 </ul>
               </li>
               <li className="dropdown-menu">
-                <Link to="/">chính sách<i class="fas fa-caret-down"></i></Link>
+                <Link to="/">chính sách<i className="fas fa-caret-down"></i></Link>
                 <ul className="dropdown-item">
                   <li><Link to="/">Chính sách vận chuyển</Link></li>
                   <li><Link to="/">Chính sách đổi trả</Link></li>
