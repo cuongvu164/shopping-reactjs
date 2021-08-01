@@ -1,0 +1,15 @@
+@import '../_mixin.scss';
+
+.banner {
+    width: 75%;
+    margin: 0 auto;
+    background: url("//theme.hstatic.net/1000239816/1000467243/14/banner-top.jpg?v=230");
+    padding: 50px 0;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    span {
+        color: #fff;
+        @include style-font-size(20)
+    }
+}

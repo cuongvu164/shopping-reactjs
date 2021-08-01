@@ -1,49 +1,57 @@
-import React, { Component } from 'react';
-import { Carousel } from 'react-bootstrap'
-// import { Link } from 'react-router-dom';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, {EffectFade,Autoplay, Navigation,Pagination} from 'swiper'
+import 'swiper/swiper-bundle.css'
+import { Link, BrowserRouter as Router } from 'react-router-dom'
+import './slide.scss'
 
-class Slide extends Component {
+const slider = [
+  {
+    path: '/',
+    img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_2.jpg?v=202'
+  },
+  {
+    path: '/',
+    img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_3.jpg?v=204'
+  },
+  {
+    path: '/',
+    img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_1.jpg?v=204'
+  },
+  {
+    path: '/',
+    img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_4.jpg?v=204'
+  },
+]
+SwiperCore.use([Navigation,Pagination,EffectFade,Autoplay])
 
-    showSlideItem = (listSlide) => {
-        return listSlide.map((item, index) => {
-            return <Carousel.Item key={index}>
-                <a to={item.path}>
-                    <img
-                        className="d-block w-100"
-                        src={item.img}
-                        alt={item.img}
-                    />
-                </a>
-            </Carousel.Item>
-        })
-    }
-
-    render() {
-        var listSlide = [
-            {
-                path: '/collections/all',
-                img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_1.jpg?v=186',
-            },
-            {
-                path: '/collections/giay',
-                img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_2.jpg?v=186',
-            },
-            {
-                path: '/collections/ao-khoac',
-                img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_3.jpg?v=186',
-            },
-            {
-                path: '/collections/all',
-                img: 'https://theme.hstatic.net/1000239816/1000467243/14/slideshow_4.jpg?v=186',
-            }
-        ]
-
-        return (
-            <Carousel>
-                {this.showSlideItem(listSlide)}
-            </Carousel>
-        );
-    }
-}
+const Slide = () => {
+  return (
+    <Router>
+        <Swiper
+          effect="fade"
+          wrapperTag="ul"
+          id="main"
+          tag="section"
+          navigation
+          pagination
+          loop
+          autoplay={{delay:2500,disableOnInteraction: false}}
+        >
+        {
+          slider.map((item,index) => {
+            return (
+              <SwiperSlide tag="li" key={index}>
+                <Link to={item.path}>
+                  <img src={item.img}/>
+                </Link>
+              </SwiperSlide>
+            )
+          })
+        }
+        </Swiper>
+    </Router>
+  );
+};
 
 export default Slide;
