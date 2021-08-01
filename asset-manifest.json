@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/shopping-reactjs/static/css/main.7f03925c.chunk.css",
+    "main.js": "/shopping-reactjs/static/js/main.3e595f40.chunk.js",
+    "main.js.map": "/shopping-reactjs/static/js/main.3e595f40.chunk.js.map",
+    "runtime-main.js": "/shopping-reactjs/static/js/runtime-main.497bc7e8.js",
+    "runtime-main.js.map": "/shopping-reactjs/static/js/runtime-main.497bc7e8.js.map",
+    "static/css/2.1d1f9f4f.chunk.css": "/shopping-reactjs/static/css/2.1d1f9f4f.chunk.css",
+    "static/js/2.f4ce8efb.chunk.js": "/shopping-reactjs/static/js/2.f4ce8efb.chunk.js",
+    "static/js/2.f4ce8efb.chunk.js.map": "/shopping-reactjs/static/js/2.f4ce8efb.chunk.js.map",
+    "static/js/3.f1907518.chunk.js": "/shopping-reactjs/static/js/3.f1907518.chunk.js",
+    "static/js/3.f1907518.chunk.js.map": "/shopping-reactjs/static/js/3.f1907518.chunk.js.map",
+    "index.html": "/shopping-reactjs/index.html",
+    "static/css/2.1d1f9f4f.chunk.css.map": "/shopping-reactjs/static/css/2.1d1f9f4f.chunk.css.map",
+    "static/css/main.7f03925c.chunk.css.map": "/shopping-reactjs/static/css/main.7f03925c.chunk.css.map",
+    "static/js/2.f4ce8efb.chunk.js.LICENSE.txt": "/shopping-reactjs/static/js/2.f4ce8efb.chunk.js.LICENSE.txt",
+    "static/media/all.min.css": "/shopping-reactjs/static/media/fa-solid-900.f2d8806e.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.497bc7e8.js",
+    "static/css/2.1d1f9f4f.chunk.css",
+    "static/js/2.f4ce8efb.chunk.js",
+    "static/css/main.7f03925c.chunk.css",
+    "static/js/main.3e595f40.chunk.js"
+  ]
+}
