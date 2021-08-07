@@ -1,30 +1,22 @@
 import React,{ useState} from 'react';
 import {
-  Link,
-  BrowserRouter as Router 
+  Link
 } from 'react-router-dom'
 import './navbar.scss'
 
 const Navbar = () => {
-  // const dataMenu = [
-  //   {
-  //     title: 'sản phẩm',
-  //     path: '/',
-  //     tag: 'product'
-  //   }
-  // ]
   const [active, setActive] = useState('')
   return (
     <>
       <div className="navbar">
         <div className="navbar__container">
           <div className="navbar__container--left">
-            <ul>
+            <ul className="main-menu">
               <li className={!active ? 'active' : ''}>
                 <Link to="/" onClick={() => setActive('')}>trang chủ</Link>
               </li>
               <li className={active === 'product' ? 'active' : ''}>
-                <Link to="/" onClick={() => setActive('product')}>sản phẩm</Link>
+                <Link to="/product" onClick={() => setActive('product')}>sản phẩm</Link>
               </li> 
               <li className="dropdown-menu" className={active === 'tutorial' ? 'active' : ''}>
                 <Link to="/"  onClick={() => setActive('tutorial')}>hướng dẫn<i className="fas fa-caret-down"></i></Link>

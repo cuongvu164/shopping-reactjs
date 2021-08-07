@@ -7,9 +7,9 @@ const HomePage= () => {
   return (
     <>
       <Slide />
-      <Product title="sản phẩm" id={1}/>
+      <Product title="sản phẩm" visible={true} limitItem={8}/>
       <Banner />
-      <Product title="giày" id={3}/>
+      <Product title="giày" id={3} visible={true} limitItem={8}/>
     </>
   );
 };
