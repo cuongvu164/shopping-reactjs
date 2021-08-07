@@ -43,7 +43,7 @@ const Slide = () => {
             return (
               <SwiperSlide tag="li" key={index}>
                 <Link to={item.path}>
-                  <img src={item.img}/>
+                  <img src={item.img} alt="" />
                 </Link>
               </SwiperSlide>
             )

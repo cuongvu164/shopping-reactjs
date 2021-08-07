@@ -1,0 +1,12 @@
+.main-content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+
+    .product__container {
+        margin-top: 20px;
+        .product-item {
+            width: calc(33.3% - 30px);
+        }    
+    }
+}

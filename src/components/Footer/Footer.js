@@ -11,19 +11,19 @@ const Footer = () => {
           <p>ENDA Kisuhi – dựa trên tinh thần đơn giản, phóng khoáng, hiện đại chứa đựng sự cổ điển đầy tinh tế. Slogan "Kisuhi – Cùng bạn bước đi" Thể hiện Kisuhi luôn mong muốn các sản phẩm của Kisuhi sẽ luôn cùng bạn bước đi mọi nơi, để cùng thấy cuộc sống tươi đẹp hơn. Cùng với triết lý kinh doanh: Kisuhi đề cao giá trị của sự trung thực, Kisuhi kinh doanh bằng sự tử tế nên Kisuhi luôn cố gắng để mang đến giá trị tốt nhất, mang đến sự hài lòng cho khách hàng.</p>
           <ul>
             <li>
-              <i class="fas fa-home"></i>
+              <i className="fas fa-home"></i>
               <span>948 Quang Trung, P. 8, Gò Vấp, HCM.</span>
             </li>
             <li>
-              <i class="fas fa-envelope"></i>
+              <i className="fas fa-envelope"></i>
               <span>cuongmk288@gmail.com</span>
             </li>
             <li>
-              <i class="fas fa-phone-alt"></i>
+              <i className="fas fa-phone-alt"></i>
               <span>0789.376.769</span>
             </li>
             <li>
-              <i class="fas fa-fax"></i>
+              <i className="fas fa-fax"></i>
               <span>GPKD số 41M8035461</span>
             </li>
           </ul>
@@ -46,16 +46,16 @@ const Footer = () => {
         <h3>kết nối với chúng tôi</h3>
           <ul>
             <li>
-              <i class="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f"></i>
             </li>
             <li>
-              <i class="fab fa-google-plus-g"></i>
+              <i className="fab fa-google-plus-g"></i>
             </li>
             <li>
-              <i class="fab fa-youtube"></i>
+              <i className="fab fa-youtube"></i>
             </li>
             <li>
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </li>
           </ul>
         </div>

@@ -15,17 +15,14 @@
             flex-direction: row;
             list-style: none;
         }
+        .main-menu > li:first-child a {
+            padding-left: 0;
+        }
 
-        ul li {
+        .main-menu li {
             transition-duration: 0.5s;
             margin-right: 10px;
-            padding: 10px;
             transition: all 0.5s ease !important;
-
-            &:first-child a {
-                padding-left: 0;
-            }
-
             i {
                 position: relative;
                 left: 5px;
@@ -36,7 +33,7 @@
                 position: absolute;
                 opacity: 0;
                 visibility: hidden;
-                top: 168px;
+                top: 190px;
                 padding: 10px;
                 transition: all 0.5s ease;
 
@@ -65,7 +62,7 @@
             text-decoration: none;
             color: #71656e;
             line-height: 20px;
-            padding: 5px 0;
+            padding: 15px;
             @include style-font-size(14);
 
             &:hover {

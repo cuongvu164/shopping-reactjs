@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
+  Link
 } from "react-router-dom";
 import './header.scss'
 import '../../font awesome/css/all.min.css'
@@ -15,7 +12,7 @@ const Header = () => {
         <div className="header__container">
           <div className="logo">
             <Link to="/">
-              <img src="https://theme.hstatic.net/1000239816/1000467243/14/logo.png?v=186"/>
+              <img src="https://theme.hstatic.net/1000239816/1000467243/14/logo.png?v=186" alt=""/>
             </Link>
           </div>
           <div className="header__aside">
