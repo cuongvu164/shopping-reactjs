@@ -1,5 +1,5 @@
 import callAPI from '../../callAPI/callAPI'
-import { GET_ALL_PRODUCT,GET_PRODUCT_ID } from '../actionTypes'
+import { GET_ALL_PRODUCT,GET_PRODUCT_CATEGORY_ID,GET_PRODUCT_ID } from '../actionTypes'
 
 export const getProduct = payload => {
   return {
@@ -17,6 +17,22 @@ export const getProductResult = () => {
   }
 }
 
+export const getProductCategoryByID = id => {
+  return {
+    type: GET_PRODUCT_CATEGORY_ID,
+    id
+  }
+}
+
+export const getProductCategoryByIDResult = id => {
+  return dispatch => {
+    return callAPI(`Product?CategoryId=${id}`,'GET',null)
+      .then(response => {
+        dispatch(getProductCategoryByID(response))
+      })
+  }
+}
+
 export const getProductByID = id => {
   return {
     type: GET_PRODUCT_ID,
@@ -26,9 +42,9 @@ export const getProductByID = id => {
 
 export const getProductByIDResult = id => {
   return dispatch => {
-    return callAPI(`Product?CategoryId=${id}`,'GET',null)
+    return callAPI(`Product/${id}`,'GET',null)
       .then(response => {
-        dispatch(getProductByID(response))
+         dispatch(getProductByID(response))
       })
   }
 }

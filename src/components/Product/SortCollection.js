@@ -1,13 +1,29 @@
 import React from 'react';
 import './product.scss'
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 const SortCollection = () => {
+  const params = useParams()
+  const listCategory = useSelector(state => state.category.categorys)
+  console.log('params sortcollection', listCategory)
   return (
     <div className="sort-collection">
-      <div className="title">
-        tất cả sản phẩm
-      </div>
+      {
+        Object.getOwnPropertyNames(params).length === 0 ?
+          <div className="title">
+            tất cả sản phẩm
+          </div>
+          : listCategory
+            .filter(category => category.CategoryId === params.CategoryId)
+            .map(category => {
+              return (
+                <div className="title" key={category.CategoryId}>
+                  {category.Name}
+                </div>
+              )
+            })
+      }
       <div className="list-item">
         <span>sắp xếp theo:</span>
         <select name="sort" id="">

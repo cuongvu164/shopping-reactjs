@@ -9,12 +9,12 @@ import '../../font awesome/css/all.min.css'
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import {getProductResult, getProductByIDResult} from '../../redux/actions/product'
+import {getProductResult, getProductCategoryByIDResult} from '../../redux/actions/product'
+import {addToCart} from '../../redux/actions/cart'
 
 const Product = (props) => {
   const dispatch = useDispatch()
-  const [isloading, setIsLoading] = useState(true)
-  const [products, setProducts] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
   
   const params = useParams()
   console.log('param', params)
@@ -55,17 +55,14 @@ var listProduct = useSelector(state => state.product.products)
     if (Object.getOwnPropertyNames(params).length !== 0 || props.id > 0) {
       console.log('fetch theo id')
       setIsLoading(false)
-      dispatch(getProductByIDResult(props.id || params.CategoryId))
+      dispatch(getProductCategoryByIDResult(props.id || params.CategoryId))
     } else {
       setIsLoading(false)
       console.log('fetch all')
       dispatch(getProductResult())
    }
-  }, [params])
-
-  // useEffect(() => {
-  //   dispatch(getProductResult())
-  // },[])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params, props.id])
 
   
   console.log('list',listProduct)
@@ -87,33 +84,29 @@ var listProduct = useSelector(state => state.product.products)
           !props.visible ? <SortCollection/> : false
         }
         {
-          !isloading ? <div className="product__container--content">
+          !isLoading ? <div className="product__container--content">
             {
               listProduct.slice(0,props.limitItem).map((product, index) => {
                 return (
                   // index <= 7 ?
                     <div className="product-item" key={product.ProductId}>
                       <div className="product-img">
-                        <Link to="/">
+                        <Link to={`/product/productid=${product.ProductId}`}>
                           <img className="first-img" src={product.Img[0]} alt=""/>
                           <img className="second-img" src={product.Img[1]} alt=""/>
                         </Link>
                       </div>
                       <div className="action">
-                        <div className="btn-cart-products">
-                          <Link to="/">
+                        <div className="btn-cart-products" onClick={() => dispatch(addToCart(product,1,product?.Size[0]))}>
                             <i className="fas fa-shopping-cart"></i>
-                          </Link>
                         </div>
                         <div className="btn-view-details">
                           <Link to="/">
                             <i className="far fa-clone"></i>
-                          </Link>
+                            </Link>
                         </div>
                         <div className="btn-quickview-products">
-                          <Link to="/">
                             <i className="fas fa-eye"></i>
-                          </Link>
                         </div>
                       </div>
                       <div className="product-detail">

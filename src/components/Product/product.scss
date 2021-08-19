@@ -87,6 +87,7 @@
             }
 
             .action {
+                cursor: pointer;
                 visibility: hidden;
                 display: flex;
                 bottom: 140px;
@@ -132,6 +133,7 @@
             }
         }
     }
+
     .ant-spin-nested-loading {
         text-align: center;
     }
@@ -157,6 +159,7 @@
         }
 
     }
+
     .sort-collection {
         display: flex;
         flex-direction: row;
@@ -180,4 +183,5 @@
             }
         }
     }
+
 }
