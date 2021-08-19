@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import * as url_api from '../../redux/actionTypes'
-import axios from 'axios';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useEffect } from 'react';
 import { Link } from 'react-router-dom'
-// import { Link as NavLink, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {useDispatch, useSelector} from 'react-redux'
+import {getCategoryResult} from '../../redux/actions/category'
 import './sidebar.scss'
 
 const SideBar = () => {
-  const [categorys, setCategorys] = useState([])
-
-  const fecthCategory = async () => {
-    await axios.get(`${url_api.API_URL}/Category`)
-      .then((response) => {
-        setCategorys(response.data)
-        console.log(response.data)
-      })
-  }
-
+  const dispatch = useDispatch()
+  const listCategory = useSelector(state => state.category.categorys)
+  console.log('listcategory--',listCategory)
   useEffect(() => {
-    fecthCategory()
+    dispatch(getCategoryResult())
   }, [])
   return (
     <>
@@ -31,10 +24,10 @@ const SideBar = () => {
               <Link to="/product">tất cả sản phẩm</Link>
             </li>
             {
-              categorys.map(category => {
+              listCategory.map(category => {
                 return (
                   <li key={category.CategoryId}>
-                    <Link to={`/product/${category.CategoryId}`}>{category.Name}</Link>
+                    <Link to={`/product/categoryid=${category.CategoryId}`}>{category.Name}</Link>
                   </li>
                 )
               })

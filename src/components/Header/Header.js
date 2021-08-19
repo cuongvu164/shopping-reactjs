@@ -4,8 +4,18 @@ import {
 } from "react-router-dom";
 import './header.scss'
 import '../../font awesome/css/all.min.css'
+import {useSelector} from 'react-redux'
 
 const Header = () => {
+  var quantities = useSelector(state => state.cart)
+  console.log('quantity', quantities)
+
+  const total = quantities => {
+    let dem = 0
+    quantities.forEach(item => dem+= item.quantity)
+
+    return dem
+  }
   return (
     <>
       <div className="header">
@@ -37,7 +47,7 @@ const Header = () => {
             <div className="header__aside--basket">
               <Link to="/">
                 <i className="fas fa-shopping-bag"></i>
-                <div className="cart-number">0</div>
+                <div className="cart-number">{total(quantities)}</div>
               </Link> 
             </div>
           </div>

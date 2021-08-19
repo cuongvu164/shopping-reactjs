@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+
 import React,{ useState} from 'react';
 import {
   Link

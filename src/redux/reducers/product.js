@@ -1,7 +1,8 @@
-import {GET_ALL_PRODUCT, GET_PRODUCT_ID} from '../actionTypes'
+import {GET_ALL_PRODUCT, GET_PRODUCT_CATEGORY_ID, GET_PRODUCT_ID} from '../actionTypes'
 
 const initialState = {
-  products: []
+  products: [],
+  productByID: []
 }
 
 
@@ -12,10 +13,15 @@ const productReducer = (state = initialState, action) => {
         ...state,
         products: action.payload.data
       }
-    case GET_PRODUCT_ID:
+    case GET_PRODUCT_CATEGORY_ID:
       return {
         ...state,
         products: action.id.data
+      }
+    case GET_PRODUCT_ID:
+      return {
+        ...state,
+        productByID: action.id.data
       }
     default: return state
   }
