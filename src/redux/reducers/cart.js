@@ -24,7 +24,7 @@ const cartReducer = (state = initialState, action) => {
   console.log('acasdasd', action)
   switch (action.type) {
     case ADD_TO_CART:
-      console.log('action add to cart-----', action.listProduct)
+      console.log('action add_to cart-----', action.listProduct)
 
       let index = findIndex(state, listProduct)
       console.log('index add to cart-----', index)
@@ -38,6 +38,7 @@ const cartReducer = (state = initialState, action) => {
           size
         })
       }
+      localStorage.setItem('cart', JSON.stringify(state))
       return [...state]
     default: return state
   }
