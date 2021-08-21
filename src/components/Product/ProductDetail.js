@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductByIDResult } from '../../redux/actions/product'
+import { addToCart } from '../../redux/actions/cart'
 
 const ProductDetail = () => {
   const productByID = useSelector(state => state.product.productByID)
@@ -13,7 +14,17 @@ const ProductDetail = () => {
   const dispatch = useDispatch()
   const [active, setActive] = useState('')
   const [isImageMain, setImageMain] = useState()
+
+  const [amount, setAmount] = useState(1)
+  const [size, setSize] = useState(27)
   // console.log('imageMain-----',productByID?.Img[0])
+
+  const handleAddToCart = (e) => {
+    console.log('test size form',size)
+    console.log('test amount form',)
+    dispatch(addToCart(productByID,parseInt(amount),size))
+    e.preventDefault()
+  }
   
   const chooseImage = (e) => {
     setImageMain(e.target.getAttribute('src'))
@@ -64,6 +75,7 @@ const ProductDetail = () => {
     setActive(productByID.Img ? productByID.Img[0] : '')
   },[productByID.Img])
 
+
   return (
     <div className="product-item-detail">
       <div className="wrapper">
@@ -93,9 +105,10 @@ const ProductDetail = () => {
           <div className="product-content--price">
             {convertMoney(productByID.Price)}đ
           </div>
-          <form action="">
+
+          <form action="" onSubmit={(e) => handleAddToCart(e)}>
             <label htmlFor="size">Kích thước</label>
-            <select name="size" id="size">
+            <select name="size" id="size" onChange={(e)=> setSize(e.target.value)} defaultValue={size}>
               {
                 productByID.Size?.map((size,index) => {
                   return (
@@ -105,7 +118,7 @@ const ProductDetail = () => {
               }
             </select>
             <label htmlFor="amount">Số lượng</label>
-            <input type="number" min="1" defaultValue="1" max={productByID.Amount} />
+            <input type="number" min="1" max={productByID.Amount} onChange={(e)=> setAmount(e.target.value)} defaultValue={amount}/>
             <div className="button-action">
               <button className="add-to-cart">
                 <i className="fas fa-shopping-cart"></i>
