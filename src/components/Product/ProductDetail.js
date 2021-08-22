@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './productDetail.scss'
-import '../../font awesome/css/fontawesome.min.css'
 import {
   useParams
 } from 'react-router-dom'

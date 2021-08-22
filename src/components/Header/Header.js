@@ -45,7 +45,7 @@ const Header = () => {
               </div>
             </div>
             <div className="header__aside--basket">
-              <Link to="/">
+              <Link to="/cart">
                 <i className="fas fa-shopping-bag"></i>
                 <div className="cart-number">{total(quantities)}</div>
               </Link> 
