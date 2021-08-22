@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import './font awesome/css/all.min.css'
 import {routers} from './routers'
 import Header from './components/Header/Header'
 import Navbar from './components/Navbar/Navbar'
