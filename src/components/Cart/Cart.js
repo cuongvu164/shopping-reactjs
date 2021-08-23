@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import {addToCart} from '../../redux/actions/cart'
 
 const Cart = () => {
-  const [isQuantity, setIsQuantity] = useState()
+  const [isQuantity, setIsQuantity] = useState(1)
   const [isPrice, setIsPrice] = useState()
   const listItemCart = useSelector(state => state.cart)
   const dispatch = useDispatch()
