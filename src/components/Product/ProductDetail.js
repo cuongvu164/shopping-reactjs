@@ -21,7 +21,7 @@ const ProductDetail = () => {
   const handleAddToCart = (e) => {
     console.log('test size form',size)
     console.log('test amount form',)
-    dispatch(addToCart(productByID,parseInt(amount),size))
+    dispatch(addToCart(productByID,parseInt(amount),parseInt(size)))
     e.preventDefault()
   }
   

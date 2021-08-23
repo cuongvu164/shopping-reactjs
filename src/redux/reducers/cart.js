@@ -8,7 +8,7 @@ const findIndex = (cart, product) => {
   let index = -1
   if (cart.length > 0) {
     for (let i = 0; i < cart.length; i++) {
-      if (cart[i].listProduct.ProductId === product.ProductId) {
+      if (cart[i].listProduct.ProductId === product.ProductId && cart[i].listProduct.Size === product.size) {
         index = i
         break
       }
@@ -21,7 +21,7 @@ const findIndex = (cart, product) => {
 
 const cartReducer = (state = initialState, action) => {
   const { listProduct, quantity, size } = action
-  console.log('acasdasd', action)
+  console.log('action cart', action)
   switch (action.type) {
     case ADD_TO_CART:
       console.log('action add_to cart-----', action.listProduct)
