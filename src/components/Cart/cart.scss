@@ -109,7 +109,7 @@
             justify-content: flex-end;
             margin-top: 20px;
 
-            .update-cart,
+            .keep-buying,
             .checkout {
                 position: relative;
                 @include style-font-size(13);
@@ -153,9 +153,13 @@
                 }
             }
 
-            .update-cart {
+            .keep-buying {
                 margin-right: 15px;
             }
         }
+    }
+
+    .content-empty {
+        text-align: center;
     }
 }

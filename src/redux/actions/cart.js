@@ -1,4 +1,4 @@
-import { ADD_TO_CART, UPDATE_TO_CART } from '../actionTypes'
+import { ADD_TO_CART, UPDATE_TO_CART,DELETE_TO_CART } from '../actionTypes'
 
 export const addToCart = (listProduct, quantity, size) => {
   return {
@@ -14,6 +14,14 @@ export const updateToCart = (listProduct, quantity, size) => {
     type: UPDATE_TO_CART,
     listProduct,
     quantity,
+    size
+  }
+}
+
+export const deleteToCart = (listProduct,size) => {
+  return {
+    type: DELETE_TO_CART,
+    listProduct,
     size
   }
 }
