@@ -1,14 +1,18 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React from 'react';
 import './cart.scss'
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart,updateToCart, deleteToCart } from '../../redux/actions/cart'
+import { updateToCart, deleteToCart } from '../../redux/actions/cart'
+import {useHistory} from 'react-router-dom'
 
 const Cart = () => {
-  const [isPrice, setIsPrice] = useState()
-
+  let history = useHistory()
   const listItemCart = useSelector(state => state.cart)
   const dispatch = useDispatch()
   console.log('item cart----', listItemCart)
+
+  const keepBuying = () => {
+    history.push('/product')
+  }
 
   const convertMoney = (money) => {
     const lengthNumber = money?.toString().length
@@ -44,8 +48,15 @@ const Cart = () => {
 
   // const setPriceCallBack = useCallback((price, quantity)=> setIsPrice(price.Price * quantity),[])
 
-  const updateCart = () => {
-    // dispatch(addToCart(listItemCart,isQuantity,isPrice))
+  const totalMoney = (cart) => {
+    const result = []
+
+    cart.map(item => {
+      const total = item.quantity * item.listProduct.Price
+      result.push(total)
+      return true
+    })
+    return convertMoney(result.reduce((a, b) => a + b, 0))
   }
 
 
@@ -100,14 +111,14 @@ const Cart = () => {
                     <td></td>
                     <td></td>
                     <td>Tổng cộng:</td>
-                    <td>{isPrice}đ</td>
+                    <td>{totalMoney(listItemCart)}đ</td>
                     <td></td>
                   </tr>
                 </tbody>
               </table>
 
               <div className="button-action">
-                <button className="keep-buying">
+                <button className="keep-buying" onClick={() => keepBuying()}>
                   tiếp tục mua hàng
                 </button>
                 <button className="checkout">

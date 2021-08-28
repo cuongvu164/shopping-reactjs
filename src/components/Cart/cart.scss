@@ -95,7 +95,7 @@
 
                 .summary td {
                     @include style-font-size(14);
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-weight: 600;
                     padding-top: 10px;
                     padding-bottom: 20px;
