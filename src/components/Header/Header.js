@@ -33,10 +33,10 @@ const Header = () => {
                     <span><i className="fas fa-phone-alt"></i>08.88.37.29.29</span>
                   </li>
                   <li>
-                    <Link to="/">đăng ký</Link>
+                    <Link to="/register">đăng ký</Link>
                   </li>
                   <li>
-                    <Link to="/">đăng nhập</Link>
+                    <Link to="/login">đăng nhập</Link>
                   </li>
                 </ul>
               </div>
