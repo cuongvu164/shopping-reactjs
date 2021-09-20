@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
 import {
   useHistory
 } from "react-router-dom";
-// import 'antd/dist/antd.css'
+import { registerUserAPI, getUserByEmailResult,getAllUserResult } from '../../redux/actions/user'
+import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
+  const user = useSelector(state => state.user.user)
+  console.log('user------',user)
+  const dispatch = useDispatch()
+
   const [form] = Form.useForm()
+  console.log('form------',form)
   let history = useHistory()
+
+  useEffect(() => {
+    dispatch(getAllUserResult())
+  },[])
 
   const styleSize = {
     paddingLeft: '47px',
@@ -43,20 +53,39 @@ const SignUp = () => {
     },
   };
 
+
+  // const checkEmail = (valueInput) => {
+  //   dispatch(getUserByEmailResult(valueInput))
+
+
+  //   // for (let i = 0; i < email.length; i++) {
+  //   //   console.log('user email',email[i].Email)
+  //   //   if (email[i].Email === valueInput) {
+  //   //     console.log('gia tri nhap vo',valueInput);
+  //   //     console.log('gia tri trong store',email[i].Email);
+  //   //     return false
+  //   //   } else {
+  //   //     return true
+  //   //   }
+  //   // }
+  // }
+
   const onFinish = async (values) => {
     const newData = { ...values }
     console.log('test newdata', newData)
-    // if(newData){
-    //   alert('Bạn đã đăng kí thành công tài khoản')
-    //   history.push('/signin')
-    // } else{
-    //   alert('Lỗi đăng kí. Vui lòng thử lại')
-    // }
-    
+
+    dispatch(getUserByEmailResult(newData.Email))
+
+    if (user.length === 0) {
+      dispatch(registerUserAPI(newData))
+    } else {
+      alert('Email đăng kí đã sử dụng. Vui lòng thử lại')
+    }
   }
 
   const submitForm = async () => {
     const payload = await form.getFieldValue()
+
     console.log('payload Sign Up', payload)
 
   }
@@ -119,7 +148,7 @@ const SignUp = () => {
         </Form.Item>
 
         <Form.Item {...tailLayout}
-          name="UserName"
+          name="Username"
           rules={[
             {
               required: true,
@@ -154,13 +183,12 @@ const SignUp = () => {
         </Form.Item>
 
         <Form.Item {...tailLayoutSignUp}>
-          <Button type="primary" htmlType="submit" className="login-form-button" onClick={submitForm}>
+          <Button type="primary" htmlType="submit" className="login-form-button" onSubmit={submitForm}>
             Đăng Ký
-        </Button>
+          </Button>
         </Form.Item>
       </Form>
     </>
   );
 };
-
 export default SignUp
