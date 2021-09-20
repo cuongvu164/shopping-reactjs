@@ -13,7 +13,6 @@ const SignUp = () => {
   const dispatch = useDispatch()
 
   const [form] = Form.useForm()
-  console.log('form------',form)
   let history = useHistory()
 
   useEffect(() => {
@@ -73,10 +72,10 @@ const SignUp = () => {
   const onFinish = async (values) => {
     const newData = { ...values }
     console.log('test newdata', newData)
+    let emailUser = user.filter(item => item.Email === newData.Email)
+    // dispatch(getUserByEmailResult(newData.Email))
 
-    dispatch(getUserByEmailResult(newData.Email))
-
-    if (user.length === 0) {
+    if (user.length === 0 || emailUser.length === 0) {
       dispatch(registerUserAPI(newData))
     } else {
       alert('Email đăng kí đã sử dụng. Vui lòng thử lại')
