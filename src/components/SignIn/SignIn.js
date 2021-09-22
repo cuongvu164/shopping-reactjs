@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
-import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, HomeOutlined } from '@ant-design/icons';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import {
   useHistory
 } from "react-router-dom";
 import { registerUserAPI, getUserByEmailResult,getAllUserResult } from '../../redux/actions/user'
 import { useDispatch, useSelector } from 'react-redux';
 
-const SignUp = () => {
+const SignIn = () => {
   const user = useSelector(state => state.user.user)
   console.log('user------',user)
   const dispatch = useDispatch()
@@ -17,7 +17,7 @@ const SignUp = () => {
 
   useEffect(() => {
     dispatch(getAllUserResult())
-  },[dispatch])
+  },[])
 
   const styleSize = {
     paddingLeft: '47px',
@@ -52,6 +52,7 @@ const SignUp = () => {
     },
   };
 
+
   const onFinish = async (values) => {
     const newData = { ...values }
     console.log('test newdata', newData)
@@ -60,9 +61,6 @@ const SignUp = () => {
 
     if (user.length === 0 || emailUser.length === 0) {
       dispatch(registerUserAPI(newData))
-      setTimeout(()=>{
-        history.push('/login')
-      },3000)
     } else {
       alert('Email đăng kí đã sử dụng. Vui lòng thử lại')
     }
@@ -75,15 +73,6 @@ const SignUp = () => {
 
   }
 
-  const validatePhoneNum = (rule, value) => {
-    const regex = /[^0-9]/g
-    const match = regex.test(value)
-    if (match) {
-      return Promise.reject('Số điện thoại chỉ được nhập từ 0-9')
-    }
-    return Promise.resolve()
-  }
-
   const validateEmail = (rule, value) => {
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     const match = regex.test(value)
@@ -94,7 +83,7 @@ const SignUp = () => {
   }
   return (
     <>
-      <span style={styleSize}>ĐĂNG KÝ</span>
+      <span style={styleSize}>ĐĂNG NHẬP</span>
       <Form
         {...layout}
         name="normal_login"
@@ -132,48 +121,13 @@ const SignUp = () => {
           />
         </Form.Item>
 
-        <Form.Item {...tailLayout}
-          name="Username"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Name!',
-            },
-          ]}
-        >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Họ tên" />
-        </Form.Item>
-
-        <Form.Item {...tailLayout}
-          name="Address"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Address!',
-            },
-          ]}
-        >
-          <Input prefix={<HomeOutlined className="site-form-item-icon" />} placeholder="Địa chỉ" />
-        </Form.Item>
-
-        <Form.Item {...tailLayout}
-          name="PhoneNumber"
-          rules={[
-            { required: true, message: 'Please input your PhoneNumber!' },
-            { validator: validatePhoneNum },
-            { max: 10, message: 'Chỉ được nhập 10 số' }
-          ]}
-        >
-          <Input prefix={<PhoneOutlined className="site-form-item-icon" />} placeholder="Số điện thoại" />
-        </Form.Item>
-
         <Form.Item {...tailLayoutSignUp}>
           <Button type="primary" htmlType="submit" className="login-form-button" onSubmit={submitForm}>
-            Đăng Ký
+            Đăng Nhập
           </Button>
         </Form.Item>
       </Form>
     </>
   );
 };
-export default SignUp
+export default SignIn
