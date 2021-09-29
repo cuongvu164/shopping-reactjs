@@ -57,3 +57,21 @@ export const getAllUserResult = () => {
       })
   }
 }
+
+export const loginUserRequest = user => {
+  return {
+    type: LOGIN_USER,
+    user,
+  }
+}
+
+export const loginUserAPI = user => {
+  return dispatch => {
+    return callAPI(`User?Email=${user}`, 'GET', null)
+      .then(response => {
+        dispatch(loginUserRequest(response))
+      }).catch(err => {
+        message.error({ content: 'Sai tên đăng nhập hoặc mật khẩu !', key, duration: 2 })
+      })
+  }
+}

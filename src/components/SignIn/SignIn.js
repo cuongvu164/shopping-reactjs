@@ -4,12 +4,12 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import {
   useHistory
 } from "react-router-dom";
-import { registerUserAPI, getUserByEmailResult,getAllUserResult } from '../../redux/actions/user'
+import { loginUserAPI, getAllUserResult } from '../../redux/actions/user'
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignIn = () => {
   const user = useSelector(state => state.user.user)
-  console.log('user------',user)
+  console.log('user------', user)
   const dispatch = useDispatch()
 
   const [form] = Form.useForm()
@@ -17,7 +17,7 @@ const SignIn = () => {
 
   useEffect(() => {
     dispatch(getAllUserResult())
-  },[])
+  }, [])
 
   const styleSize = {
     paddingLeft: '47px',
@@ -53,23 +53,25 @@ const SignIn = () => {
   };
 
 
-  const onFinish = async (values) => {
+  const onFinish = async values => {
     const newData = { ...values }
     console.log('test newdata', newData)
     let emailUser = user.filter(item => item.Email === newData.Email)
+    let passwordUser = user.filter(item => item.Password === newData.Password)
     // dispatch(getUserByEmailResult(newData.Email))
 
-    if (user.length === 0 || emailUser.length === 0) {
-      dispatch(registerUserAPI(newData))
+    if (emailUser.length !== 0 && passwordUser.length !== 0) {
+      dispatch(loginUserAPI(newData.Email))
+      // history.push('/product')
     } else {
-      alert('Email đăng kí đã sử dụng. Vui lòng thử lại')
+      alert('Sai tên đăng nhập hoặc mật khẩu')
     }
   }
 
   const submitForm = async () => {
     const payload = await form.getFieldValue()
 
-    console.log('payload Sign Up', payload)
+    console.log('payload Sign In', payload)
 
   }
 
