@@ -58,10 +58,11 @@ export const getAllUserResult = () => {
   }
 }
 
-export const loginUserRequest = user => {
+export const loginUserRequest = (user, isLogin) => {
   return {
     type: LOGIN_USER,
-    user,
+    isLogin: true,
+    user
   }
 }
 
@@ -69,7 +70,7 @@ export const loginUserAPI = user => {
   return dispatch => {
     return callAPI(`User?Email=${user}`, 'GET', null)
       .then(response => {
-        dispatch(loginUserRequest(response))
+        dispatch(loginUserRequest(response,true))
       }).catch(err => {
         message.error({ content: 'Sai tên đăng nhập hoặc mật khẩu !', key, duration: 2 })
       })

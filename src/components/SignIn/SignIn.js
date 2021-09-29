@@ -62,6 +62,8 @@ const SignIn = () => {
 
     if (emailUser.length !== 0 && passwordUser.length !== 0) {
       dispatch(loginUserAPI(newData.Email))
+      // const userLocal = { email: newData.Email, isLogin: true }
+      // localStorage.setItem('userLogin', JSON.stringify(userLocal))
       // history.push('/product')
     } else {
       alert('Sai tên đăng nhập hoặc mật khẩu')

@@ -38,20 +38,18 @@ const userReducer = (state = initialState, action) => {
       }
 
     case LOGIN_USER:
-      
-      // state.push({
-      //   ...state,
-      //   currentUser: action.user.data,
-      //   isLogin: true
-      // })
-      console.log('action currentUser------',state)
-      localStorage.setItem('userLogin', JSON.stringify(state))
+      console.log('action currentUser------', state)
+      const userLogin = {
+        currentUser: action.user.data,
+        isLogin: true
+      }
+      localStorage.setItem('userLogin', JSON.stringify(userLogin))
       return {
         ...state,
         currentUser: action.user.data,
         isLogin: true
       }
-      
+
 
 
     default: return state
