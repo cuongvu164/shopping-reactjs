@@ -17,7 +17,7 @@ const SignIn = () => {
 
   useEffect(() => {
     dispatch(getAllUserResult())
-  }, [])
+  }, [dispatch])
 
   const styleSize = {
     paddingLeft: '47px',
@@ -64,7 +64,7 @@ const SignIn = () => {
       dispatch(loginUserAPI(newData.Email))
       // const userLocal = { email: newData.Email, isLogin: true }
       // localStorage.setItem('userLogin', JSON.stringify(userLocal))
-      // history.push('/product')
+      history.push('/product')
     } else {
       alert('Sai tên đăng nhập hoặc mật khẩu')
     }

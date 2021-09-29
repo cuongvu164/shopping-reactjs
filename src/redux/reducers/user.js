@@ -3,7 +3,7 @@ import { message } from 'antd';
 const key = 'updatable';
 
 // const user = JSON.parse(localStorage.getItem('user'));
-const userInLogged = JSON.parse(localStorage.getItem('userLogin'));
+// const userInLogged = JSON.parse(localStorage.getItem('userLogin'));
 
 const initialState = {
   user: [],

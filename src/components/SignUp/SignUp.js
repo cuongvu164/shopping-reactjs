@@ -4,12 +4,12 @@ import { UserOutlined, LockOutlined, MailOutlined, PhoneOutlined, HomeOutlined }
 import {
   useHistory
 } from "react-router-dom";
-import { registerUserAPI, getUserByEmailResult,getAllUserResult } from '../../redux/actions/user'
+import { registerUserAPI, getAllUserResult } from '../../redux/actions/user'
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
   const user = useSelector(state => state.user.user)
-  console.log('user------',user)
+  console.log('user------', user)
   const dispatch = useDispatch()
 
   const [form] = Form.useForm()
@@ -17,7 +17,7 @@ const SignUp = () => {
 
   useEffect(() => {
     dispatch(getAllUserResult())
-  },[dispatch])
+  }, [dispatch])
 
   const styleSize = {
     paddingLeft: '47px',
@@ -60,9 +60,9 @@ const SignUp = () => {
 
     if (user.length === 0 || emailUser.length === 0) {
       dispatch(registerUserAPI(newData))
-      setTimeout(()=>{
+      setTimeout(() => {
         history.push('/login')
-      },3000)
+      }, 3000)
     } else {
       alert('Email đăng kí đã sử dụng. Vui lòng thử lại')
     }
