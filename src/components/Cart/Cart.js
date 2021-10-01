@@ -13,6 +13,9 @@ const Cart = () => {
   const keepBuying = () => {
     history.push('/product')
   }
+  const checkout = () => {
+    history.push('/checkout')
+  }
 
   const convertMoney = (money) => {
     const lengthNumber = money?.toString().length
@@ -121,7 +124,7 @@ const Cart = () => {
                 <button className="keep-buying" onClick={() => keepBuying()}>
                   tiếp tục mua hàng
                 </button>
-                <button className="checkout">
+                <button className="checkout" onClick={() => checkout()}>
                   thanh toán
                 </button>
               </div>
